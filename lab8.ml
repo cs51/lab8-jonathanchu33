@@ -123,7 +123,7 @@ decide how to implement this.
 
   let add_listener (evt : 'a event) (listener : 'a -> unit) : id =
     let this_id = new_id () in
-    evt := !evt @ [{id : this_id; action : listener}];
+    evt := !evt @ [{id = this_id; action = listener}];
     this_id
 
 (*......................................................................
