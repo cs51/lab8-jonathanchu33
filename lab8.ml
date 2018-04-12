@@ -190,9 +190,8 @@ Exercise 6: Finally, fire newswire events with the above three
 headlines, and observe what happens!
 ......................................................................*)
 
-WEvent.fire_event newswire h1 ;;
-WEvent.fire_event newswire h2 ;;
-WEvent.fire_event newswire h3 ;;
+let _ =
+  List.iter (WEvent.fire_event newswire) [h1; h2; h3] ;;
 
 (* Imagine now that you work at Facebook, and you're growing concerned
 with the proliferation of fake news. To combat the problem, you decide
@@ -205,9 +204,8 @@ the publications don't publish right away. *)
 Exercise 7: Remove the newswire listeners that were previously registered.
 ......................................................................*)
 
-
-WEvent.remove_listener newswire fake_id ;;
-WEvent.remove_listener newswire buzz_id ;;
+let _ =
+  List.iter (WEvent.remove_listener newswire) [fake_id; buzz_id] ;;
 
 (*......................................................................
 Exercise 8: Create a new event called publish to signal that all
@@ -249,9 +247,8 @@ the news. (They've just queued up a bunch of listeners on the publish
 event instead.)
 ......................................................................*)
 
-WEvent.fire_event newswire h4 ;;
-WEvent.fire_event newswire h5 ;;
-WEvent.fire_event newswire h6 ;;
+let _ =
+  List.iter (WEvent.fire_event newswire) [h4; h5; h6] ;;
 
 print_string "Moved to publication.\n" ;;
 
